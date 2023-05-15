@@ -10,3 +10,19 @@ User Stories
 8. Como usuario, quiero que el sistema me muestre una checklist para hacer una autoevaluacion
 9. Como usuario, quiero que el sistema me muestre una checklist para hacer una practica espaciada
 10. Como usuario, quiero que el sistema me muestre una checklist para Ejecutar
+11. Como usuario, quiero que el sistema me muestre una lista de actividades comunes cuando inicio la app
+
+1:
+sust: actividades comunes
+verb: muestre
+evento: iniciar pc/iniciar app
+Depende de: necesitan existir una lista de actividades
+visibilidad: Mostrador.verActividades()
+
+dsl:
+
+checklist
+
+Casos limite:
+
+
