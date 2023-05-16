@@ -33,9 +33,10 @@ class Ui:
             print(opcion,self.opciones_principales[opcion])
         to_do_index = input("Que deseas hacer?")
         to_do = self.opciones_principales[to_do_index]
-        recibido = self.dm.dependencias["router"].routeGet(to_do)
+        recibido = self.dm.dependencias["router"].routeGet(to_do.replace(" ","_"))
 
 
 if __name__ == "__main__":
    ui = Ui()
+   print("¡alerta! iniciando sin dependency manager")
    ui.run()

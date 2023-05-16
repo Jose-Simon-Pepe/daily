@@ -5,9 +5,20 @@ class Router:
         self.dm = None
 
     def routeGet(self, to_do):
-        print(to_do)
-        return None
-        #     return self.dm.dependencias["listmanager"].getChecklist(toGet)
+        call = getattr(self,to_do) 
+        return call()
+
+    def Procesamiento(self):
+        print("¡Hola!")
+    
+    def Revisiones_semanales(self):
+        pass
+
+    def Estudio(self):
+        pass
+
+    def Ejecutar(self):
+        pass
 
  
 if __name__ == "__main__":
