@@ -13,12 +13,12 @@ class Ui:
 
     def loadOpciones(self):
         data: dict = self.load_toml()
+        self.opciones = data
         return(data) 
 
     def getOpciones(self, cuales):
         data = self.loadOpciones()
-        cuales = "opciones_"+cuales
-        filtered = {key: data[key] for key in [cuales]}
+        filtered = data["opciones_"+cuales][0]
         return filtered
     
 
@@ -31,8 +31,9 @@ class Ui:
     def menu_principal(self):
         for opcion in self.opciones_principales:
             print(opcion,self.opciones_principales[opcion])
-        to_do = input("Que deseas hacer?")
-        recibido = self.dm.dependencias["router"].routeGet(to_do,self.dm)
+        to_do_index = input("Que deseas hacer?")
+        to_do = self.opciones_principales[to_do_index]
+        recibido = self.dm.dependencias["router"].routeGet(to_do)
 
 
 if __name__ == "__main__":

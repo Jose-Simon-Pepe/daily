@@ -5,7 +5,9 @@ class Router:
         self.dm = None
 
     def routeGet(self, to_do):
-        return self.dm.dependencias["listmanager"].getChecklist(toGet)
+        print(to_do)
+        return None
+        #     return self.dm.dependencias["listmanager"].getChecklist(toGet)
 
  
 if __name__ == "__main__":
