@@ -24,12 +24,12 @@ d88' `888  `P  )88b  `888   888   `88.  .8'  \n\
                                  `Y8P'       \n\
                                              ")
 
-def show(things,kindof):
+def show(things,kindof, accion=None, **cabecera):
     if kindof.upper() == "ALERTA" or kindof.upper() == "ALERTAS":
         context = Context(MostrarAlertas(things))
         context.execute_strategy()
     if kindof.upper() == "OPCION" or kindof.upper() == "OPCIONES":
-        context = Context(MostrarOpciones(things))
+        context = Context(MostrarOpciones(things, cabecera,accion))
         context.execute_strategy()
 
 class Strategy:
@@ -38,10 +38,18 @@ class Strategy:
 
 class MostrarOpciones(Strategy):
 
-    def __init__(self,opciones):
+    def __init__(self,opciones,cabecera,accion):
         self.opciones = opciones
+        self.cabecera = cabecera
+        self.accion = accion
 
     def execute(self):
+        if self.accion and self.accion == "clear":
+            os.system("clear")
+            presentacion()
+        if self.cabecera:
+            for dato in self.cabecera:
+                print(colorama.Fore.GREEN + self.cabecera[dato])
         print(colorama.Fore.BLUE + "~~~~~~~~~~>Opciones<~~~~~~~~~~")
         for opcion in self.opciones:
             print(">",opcion,self.opciones[opcion])
@@ -60,6 +68,18 @@ class MostrarAlertas(Strategy):
             for alerta in self.alertas:
                 print(">",alerta)
         print("¡¡¡¡≈!!!!")
+        colorama.Style.RESET_ALL
+
+class MostrarOpcionesConAlerta(Strategy):
+
+    def __init__(self, alertas, alerta_cabecera):
+        self.alertas = alertas
+
+    def execute(self):
+        print(colorama.Fore.RED + self.cabecera)
+        print(colorama.Fore.BLUE + "~~~~~~~~~~>Opciones<~~~~~~~~~~")
+        for opcion in self.opciones:
+            print(">",opcion,self.opciones[opcion])
         colorama.Style.RESET_ALL
 
 

@@ -30,17 +30,22 @@ class Ui:
     def run(self):
         visuales.iniciar_dependencias()
         visuales.presentacion()
+        self.opcion_actual = None
         self.menu_principal()
 
     def menu_principal(self):
-        visuales.show(self.opciones_principales,"Opciones")
-        to_do_index = input("Que deseas hacer?")
-        if to_do_index in self.opciones_principales:
-            to_do = self.opciones_principales[to_do_index]
-            recibido = self.dm.dependencias["router"].routeGet(to_do.replace(" ","_"))
-        else:
-            visuales.show("Auch, parece que esa opcion no existe. Reintenta.","Alerta")
-            self.menu_principal()
+        cabecera = ""
+        accion = ""
+        while self.opcion_actual == None:
+            visuales.show(self.opciones_principales,"Opciones",accion, cabecera=cabecera)
+            to_do_index = input("Que deseas hacer?")
+            if to_do_index in self.opciones_principales:
+                to_do = self.opciones_principales[to_do_index]
+                self.opcion_actual = to_do
+                recibido = self.dm.dependencias["router"].routeGet(to_do.replace(" ","_"))
+            else:
+                cabecera = "Auch! parece que esa opcion no existe. Reintenta"
+                accion = "clear"
 
 if __name__ == "__main__":
    ui = Ui()
