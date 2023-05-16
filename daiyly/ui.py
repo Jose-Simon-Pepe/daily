@@ -1,4 +1,6 @@
 import tomli
+import os
+import visuales
 
 class Ui:
 
@@ -22,21 +24,25 @@ class Ui:
         return filtered
     
 
-    def show(self,thing):
-        print(thing)
+    def show(self,thing,kindof):
+        visuales.show(thing,kindof)
 
     def run(self):
+        visuales.iniciar_dependencias()
+        visuales.presentacion()
         self.menu_principal()
 
     def menu_principal(self):
-        for opcion in self.opciones_principales:
-            print(opcion,self.opciones_principales[opcion])
+        visuales.show(self.opciones_principales,"Opciones")
         to_do_index = input("Que deseas hacer?")
-        to_do = self.opciones_principales[to_do_index]
-        recibido = self.dm.dependencias["router"].routeGet(to_do.replace(" ","_"))
-
+        if to_do_index in self.opciones_principales:
+            to_do = self.opciones_principales[to_do_index]
+            recibido = self.dm.dependencias["router"].routeGet(to_do.replace(" ","_"))
+        else:
+            visuales.show("Auch, parece que esa opcion no existe. Reintenta.","Alerta")
+            self.menu_principal()
 
 if __name__ == "__main__":
    ui = Ui()
-   print("¡alerta! iniciando sin dependency manager")
+   visuales.show("iniciando sin dependency manager","Alerta")
    ui.run()

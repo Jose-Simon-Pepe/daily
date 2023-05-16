@@ -5,8 +5,8 @@ class Router:
         self.dm = None
 
     def routeGet(self, to_do):
-        call = getattr(self,to_do) 
-        return call()
+        call = getattr(self,to_do)
+        return call() if callable(call) else print("Auch, parece que ",to_do.replace("_"," ")," no esta implementado. Implementalo primero, y reintenta.")
 
     def Procesamiento(self):
         print("¡Hola!")
