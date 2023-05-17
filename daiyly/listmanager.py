@@ -15,7 +15,7 @@ class ListManager:
 
     def getChecklist(self, name):
         data = self.loadChecklists()
-        filtered = {key: data[key] for key in [name]}
+        filtered = data[name][0]
         return filtered
 
  

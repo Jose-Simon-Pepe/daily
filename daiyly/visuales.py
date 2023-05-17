@@ -31,6 +31,9 @@ def show(things,kindof, accion=None, **cabecera):
     if kindof.upper() == "OPCION" or kindof.upper() == "OPCIONES":
         context = Context(MostrarOpciones(things, cabecera,accion))
         context.execute_strategy()
+    if kindof.upper() == "RESPUESTA" or kindof.upper() == "RESPUESTAS":
+        context = Context(MostrarRespuestas(things,cabecera,accion))
+        return context.execute_strategy()
 
 class Strategy:
     def execute(self):
@@ -54,6 +57,27 @@ class MostrarOpciones(Strategy):
         for opcion in self.opciones:
             print(">",opcion,self.opciones[opcion])
         colorama.Style.RESET_ALL
+
+class MostrarRespuestas(Strategy):
+
+    def __init__(self,acciones,cabecera,accion):
+        self.acciones = acciones
+        self.cabecera = cabecera
+        self.accion = accion
+        self.respuesta = None
+
+    def execute(self):
+        if self.cabecera:
+            for dato in self.cabecera:
+                print(colorama.Fore.GREEN + self.cabecera[dato])
+        print(colorama.Fore.BLUE + "~~~~~~~~~~>Acciones<~~~~~~~~~~")
+        for accion in self.acciones:
+            print("->",accion,self.acciones[accion])
+        if self.accion and self.accion == "input":
+            self.respuesta = input("Ingresa tu respuesta: ")
+        colorama.Style.RESET_ALL
+        return self.respuesta
+
 
 class MostrarAlertas(Strategy):
 
@@ -88,4 +112,4 @@ class Context:
         self.strategy = strategy
 
     def execute_strategy(self):
-        self.strategy.execute()
+        return self.strategy.execute()

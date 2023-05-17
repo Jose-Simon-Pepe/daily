@@ -43,6 +43,13 @@ class Ui:
                 to_do = self.opciones_principales[to_do_index]
                 self.opcion_actual = to_do
                 recibido = self.dm.dependencias["router"].routeGet(to_do.replace(" ","_"))
+                if to_do.endswith("..."):
+                    accion = "input"
+                else:
+                    accion = None
+                respuesta = visuales.show(recibido,"respuesta",accion)
+                print(respuesta)
+                self.dm.dependencias["router"].routeGet(respuesta)
             else:
                 cabecera = "Auch! parece que esa opcion no existe. Reintenta"
                 accion = "clear"
