@@ -1,0 +1,55 @@
+[mermaid, "nombre", png]
+....
+
+C4Component  
+title Como usuario quiero ver una lista
+
+Person(usuario,"usuario","Pide una lista")
+
+Rel(usuario,uiwindow,"Indica checklist que desea")
+
+System_Ext(uiwindow,"ui window", "Usable ui for user")
+System_Ext(systemd,"systemd", "Connects client and server")
+
+SystemDb_Ext(storage, "device local storage", "Stores all system data")
+
+Container_Boundary(ui, "ui","python app") { 
+    Component(uiparser,"petition_parser","Parsee user petitions to native and standard petition")
+    Component(uicore,"ui_core","Encapsules bussines logic of ui")
+    Component(formater,"formater","Give a user intended understable response data format")
+    Component(sender,"sender", "Sends standard petition to router")
+    Component(servergateway,"server_gateway", "server abstraction")
+    }
+
+
+    
+
+Container_Boundary(server ,"server","python app") { 
+    Component(parser, "parser", "Python component", "Parsees petitions from native types to understable petitions") 
+    Component(router,"router","Routees user petition to the dedicated service")
+    Component(clientgateway,"client_gateway", "client abstraction")
+    Component(storagegateway,"storage_gateway", "database abstraction")
+
+    Boundary(core,"core boundary"){
+        Component(listsmanager,"listsManager","Managees option and check lists") }
+}
+
+Component(storagegateway,"storage_gateway", "storage abstraction")
+Rel(uicore,storagegateway,"ask for client configuration")
+
+Rel(uicore,storagegateway,"ask for server configuration")
+
+
+Rel(uiwindow,uiparser,"sends petition info to")
+Rel(uiparser,sender,"sends properly formated info to")
+Rel(sender,servergateway,"sends minimal and abstract info to")
+Rel(servergateway,systemd,"sends petition to server trhu' an implemented way")
+Rel(systemd,clientgateway,"recives user's petition")
+Rel(clientgateway,router,"routes user petitions")
+Rel(router,listsmanager,"ask for bussines logic directives")
+Rel(listsmanager,router,"sends petitions response to") 
+Rel(listsmanager,storagegateway,"gets the asked list") 
+Rel(storagegateway,storage,"sends a petition in a implementen storage service")
+Rel(router,formater,"sends user non understable data to") 
+Rel(formater,uiwindow,"sends user understable info to")
+....
