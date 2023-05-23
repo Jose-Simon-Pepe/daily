@@ -38,7 +38,8 @@ class Ui:
         accion = ""
         while self.opcion_actual == None:
             visuales.show(self.opciones_principales,"Opciones",accion, cabecera=cabecera)
-            to_do_index = input("Que deseas hacer?")
+            # visuales! to_do_index = input("Que deseas hacer?")
+            visuales.show("Que deseas hacer","Respuesta","input")
             if to_do_index in self.opciones_principales:
                 to_do = self.opciones_principales[to_do_index]
                 self.opcion_actual = to_do
@@ -48,7 +49,6 @@ class Ui:
                 else:
                     accion = None
                 respuesta = visuales.show(recibido,"respuesta",accion)
-                print(respuesta)
                 self.dm.dependencias["router"].routeGet(respuesta)
             else:
                 cabecera = "Auch! parece que esa opcion no existe. Reintenta"

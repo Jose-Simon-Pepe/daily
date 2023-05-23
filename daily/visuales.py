@@ -71,6 +71,7 @@ class MostrarRespuestas(Strategy):
             for dato in self.cabecera:
                 print(colorama.Fore.GREEN + self.cabecera[dato])
         print(colorama.Fore.BLUE + "~~~~~~~~~~>Acciones<~~~~~~~~~~")
+        print(accion)
         for accion in self.acciones:
             print("->",accion,self.acciones[accion])
         if self.accion and self.accion == "input":
