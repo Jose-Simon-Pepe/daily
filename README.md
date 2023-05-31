@@ -1,12 +1,15 @@
-      .o8             o8o  oooo              
+<pre>
+     .o8             o8o  oooo    
      "888             `"'  `888              
  .oooo888   .oooo.   oooo   888  oooo    ooo 
-d88' `888  `P  )88b  `888   888   `88.  .8'  
+d88' `888  `P  )88b  `888   888   `88.  .8' 
 888   888   .oP"888   888   888    `88..8'   
 888   888  d8(  888   888   888     `888'    
-`Y8bod88P" `Y888""8o o888o o888o     .8'     
+`Y8bod88P" `Y888""8o o888o o888o     .8'    
                                  .o..P'      
                                  `Y8P'       
+</pre>
+
                                          
 # About Daily
 
@@ -19,5 +22,5 @@ If you're a decent developer, you can even gain some user's donations here... Ye
 
 ## Donations section!
 
-1. Jose Pepe: 
+1. Jose Pepe: 0000003100000752364719 (Mercado-Pago)
 2. 
