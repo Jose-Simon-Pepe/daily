@@ -1,0 +1,8 @@
+- CRUD de listas | Como usuario, quiero poder hacer CRUD de listas 
+    - Checklists | "", "" de Checklists 
+    - Opciones (para crear flujos de trabajo) | "", "" de Opciones 
+- Visualizar las listas en cli | Como usuario, quiero que el sistema me muestre las listas que contiene
+- Mantener los checklists existentes disponibles en internet | Como usuario, quiero poder persistir mis listas en mi cuenta privada en internet 
+- Visualizar las listas atraves de un navegador web | Como usuario, quiero acceder a ver las listas del sistema mediante un navegador web
+- Elegir de varias listas para un mismo proposito, una de ellas a utilizar en la ejecucion | Como usuario, quiero poder seleccionar la lista a utilizar en una ejecucion en caso de que haya varias para un mismo paso
+- Permitir al usuario cambiar el flujo de trabajo a su antojo | Como usuario, quiero poder modificar el flujo de trabajo del sistema
