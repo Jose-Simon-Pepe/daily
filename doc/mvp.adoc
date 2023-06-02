@@ -1,0 +1,127 @@
+include::./config.adoc[]
+= MVP DESIGN
+:revnumber: 8.2 ES
+:revdate: January 2023
+:revremark: (based upon AsciiDoc version)
+:toc-title: Contenido
+
+== Nicho
+
+=== Psicografia
+
+. Puntos de dolor
+.. Siente que tiene desorden con sus objetivos
+.. Siente que invierte demasiado tiempo gestionando su sistema de organizacion
+.. Siente que si sigue su instinto o se deja fluir no esta haciendo las cosas bien
+.. Le molesta tener que memorizarse flujos de trabajo cotidianos
+// TODO: Ser mas concreto al respecto de como los puntos de dolor estan lastrando al publico en sus vidas
+. Habitos de consumo (relacionados)
+.. Perfil de comprador
+// TODO: indicar barreras de adopcion de la propuesta
+... Es un comprador racional
+... Identifica problemas o molestias en su sistema de organizacion, y busca hacer cambios
+. Miedos
+.. Fracaso en alguna/s de las areas de la vida
+.. Perdida de tiempo: Se tiene el miedo tanto de perder el tiempo con sistemas que no funcionan, como de trabajar en cosas que no producen los resultados deseados
+.. Sobrecarga de trabajo: Se tiene el miedo de que implementar un sistema de organizacion de mas trabajo y atrase los objetivos ya establecidos.
+.. Desconocimiento: No se entiende que es la organizacion personal por lo que no se conecta como un beneficio
+.. Desconfianza en sus capacidades para el trabajo: Por la razon que sea, duda de sus capacidades para lograr sus objetivos en su trabajo si no esta organizado
+. Consumidor - Decisor - Comprador
+ Se conciben estos casos
+- El decisor es la administracion de la Institucion, que Compra junto a los inversores (o les delega totalmente el pago) un software de organizacion personal para que los miembros la consuman.
+- Ejemplo: Universidad comprando con dinero publico el software para que sus alumnos se organicen.
+- Ejemplo: Gerencia de la empresa comprando el software para que sus empleados se organicen
+
+
+=== Demografia
+// TODO: Dar casos concretos y puntuales donde invertir los esfuerzos sobre el trabajo o la ocupacion
+. Trabajo u ocupacion
+Personas de alto rendimiento.
+.. Empresarios
+.. Inversores
+.. Ejecutivos
+.. Universitarios
+... Medicina
+... Ingenieria
+... Abogacia
+... Emprendedores
+... Freelancers
+. Edad
+.. De 20 a 50 años
+. Sexo
+.. Principalmente Hombres
+. Region
+.. India
+.. Estados Unidos
+.. Brazil
+.. China
+.. Alemania
+. Educacion
+// TODO: indicar que asuntos de conocimiento o topicos debe conocer y hasta que nivel el publico
+.. Universitaria al menos
+.. Con cursos a eleccion
+
+== Producto
+
+=== Propuesta de valor
+
+. Dar un sistema que permita recordar sin esfuerzo las decisiones de accion hacia los objetivos que se han pensado como las mejores y se buscan implementar en el dia a dia.
+
+=== Funcionalidades
+
+Dado que es un modulo de GoAgile, Daily hereda funcionalidades.
+
+[options="header"]
+|===
+| id Requerimiento | Requerimiento | US | Prioridad
+| 1  | Crear checklists | Como usuario, quiero poder hacer CRUD de Checklists  | 9
+| 2 | Crear opciones (para crear flujos de trabajo) | Como usuario, quiero poder hacer CRUD de Opciones | 8
+| 3 | Visualizar las listas en cli | Como usuario, quiero que el sistema me muestre las listas que contiene | 10
+| 4 | Mantener los checklists existentes disponibles en internet | Como usuario, quiero poder persistir mis listas en mi cuenta privada en internet | 3
+| 5 | Visualizar las listas atraves de un navegador web | Como usuario, quiero acceder a ver las listas del sistema mediante un navegador web | 4
+| 6 | Elegir de varias listas para un mismo proposito, una de ellas a utilizar en la ejecucion | Como usuario, quiero poder seleccionar la lista a utilizar en una ejecucion en caso de que haya varias para un mismo paso | 6
+| 7 | Permitir al usuario cambiar el flujo de trabajo a su antojo | Como usuario, quiero poder modificar el flujo de trabajo del sistema | 8
+
+|===
+
+=== Descripcion conceptual
+
+. Ben. basico: "Empirismo, Pragmatismo, Sencillo"
+. Evidencia de apoyo:
+.. El desarrollo continuo y fructuoso de metodologias de crecimiento empresarial da muestra de que los propositos humanos tienden a estandarizar metodos, establecer criterios de prioridad basados en principios y valores, y buscar la maximizacion del beneficio frente a la reduccion del coste de inversion. Esto es en sintesis lo que el sistema posicional propone, y lo que su modulo soft viene a implementar en este producto.
+. Reason Why: 
+.. Empirico: El progreso en la evolucion del individuo siempre es medible y tiene criterios para serlo.
+.. Pragmatismo: Mejorar la posicion del individuo es el foco central de estudio e implementacion del sistema.
+.. Sencillo: Mediante la automatizacion y las interfaces, se genera un manejo humano muy sencillo del sistema, que oculta toda su complejidad subyacente.
+
+== Competencia
+
+=== Directa
+
+. Facilething
+. OmniFocus
+. Notion
+
+Desde la vision de este proyecto, conocemos y valoramos las oportunidades de progreso que estas dos herramientas nos brindan. Pero consideramos que para gente como nosotros han fallado en varios aspectos. Por eso la necesidad de crear un sistema mas robusto e integral.
+
+=== Indirecta
+
+. Notion
+
+Desde la vision de este proyecto, ademas de volver a valorar las anteriores dos herramientas, seguimos viendo incapacidad de solucionar incluso la gestion mas simple de tareas de forma correcta para nuestras necesidades.
+
+== Comunicacion con usuarios
+
+La comunicacion con los usuarios se piensa en estos medios:
+
+. Github (discussion, issues, community)
+. Discord
+. Reddit
+
+== Branding
+// Enlazar a documentacion de diseño grafico
+
+image::logo.jpg[] 
+image::a.svg[] 
+
+
